@@ -16,14 +16,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "calls")
 public class Call {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "phone", nullable = false)
     @ManyToOne
+    @JoinColumn(name = "phones_id", nullable = false)
     private Phone phone;
 
     @ManyToOne

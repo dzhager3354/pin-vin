@@ -9,20 +9,31 @@ import java.util.List;
 
 @Service
 public class CallService {
+
     @Autowired
-    private CallRepository repository;
+    private CallRepository callRepository;
 
-    public List<Call> getCalls() {
-        return repository.findAll();
+    public List<Call> getAllCalls() {
+        return callRepository.findAll();
     }
 
-    public List<Call> getCallsByPhone(String phone) {
-
+    public Call getCallById(Long id) {
+        return callRepository.findById(id).orElse(null);
     }
 
-    public List<String> getAllPhones() {
-
+    public Call saveCall(Call call) {
+        return callRepository.save(call);
     }
 
-    public List<> getId
+    public void deleteCall(Long id) {
+        callRepository.deleteById(id);
+    }
+
+    public List<Call> getCallsByManagerId(Long managerId) {
+        return callRepository.findByManagerId(managerId);
+    }
+
+    public List<Call> getCallsByPhoneId(Long phoneId) {
+        return callRepository.findByPhoneId(phoneId);
+    }
 }
