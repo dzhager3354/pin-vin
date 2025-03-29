@@ -20,7 +20,7 @@ public class StatsService {
         dao.setWarm((int) answers.stream().filter(answerNeuron -> answerNeuron.getCategory().equals("warm")).count());
         dao.setCold((int) answers.stream().filter(answerNeuron -> answerNeuron.getCategory().equals("cold")).count());
         dao.setAmount(answers.size());
-        dao.setConversion(dao.getAmount() == 0 ? 0 : (dao.getHot())/dao.getAmount());
+        dao.setConversion(dao.getAmount() == 0 ? 0 : (double) (dao.getHot()) /dao.getAmount());
         return dao;
     }
 }

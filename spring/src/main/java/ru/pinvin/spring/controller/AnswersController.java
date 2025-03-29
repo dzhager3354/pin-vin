@@ -6,19 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.pinvin.spring.service.CallService;
-
-import java.util.List;
-import java.util.Map;
+import ru.pinvin.spring.dao.AnswerNeuron;
+import ru.pinvin.spring.service.AnswerNeuronService;
 
 @RestController
-@RequestMapping("/calls")
-public class CallController {
+@RequestMapping("/answer")
+public class AnswersController {
     @Autowired
-    private CallService service;
+    private AnswerNeuronService service;
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<List<Map<String, Object>>> getCallers(@PathVariable("id") long id) {
-        return ResponseEntity.ok(service.getCallsByPhoneId(id));
+    public ResponseEntity<AnswerNeuron> getAnswerById(@PathVariable("id") long id) {
+        return ResponseEntity.ok(service.getAnswerNeuronById(id));
     }
+
 }

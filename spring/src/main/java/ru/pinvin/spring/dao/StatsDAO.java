@@ -15,5 +15,5 @@ public class StatsDAO {
     private int hot;
     private int warm;
     private int cold;
-    private int conversion;
+    private double conversion;
 }

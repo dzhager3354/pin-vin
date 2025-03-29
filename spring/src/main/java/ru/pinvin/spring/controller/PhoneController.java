@@ -14,7 +14,7 @@ public class PhoneController {
     @Autowired
     private PhoneService service;
 
-    @GetMapping
+    @GetMapping("/get")
     public ResponseEntity<List<Phone>> getAllPhones() {
         return ResponseEntity.ok(service.getAllPhones());
     }
