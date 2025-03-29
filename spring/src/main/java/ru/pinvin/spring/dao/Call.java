@@ -1,15 +1,15 @@
 package ru.pinvin.spring.dao;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DialectOverride;
+import org.hibernate.dialect.Dialect;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -27,14 +27,19 @@ public class Call {
     private Phone phone;
 
     @ManyToOne
-    @JoinColumn(name = "managers_id", nullable = false)
+    @JoinColumn(name = "managers_id")
     private Manager manager;
 
     @OneToOne
     @JoinColumn(name = "answer_neurons_id")
     private AnswerNeuron answerNeuron;
 
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
     private LocalDateTime date;
 
+    @PrePersist
+    @PreUpdate
+    public void init() {
+        date = LocalDateTime.now();
+    }
 }

@@ -1,8 +1,8 @@
 class KafkaConfig:
     KAFKA_BOOTSTRAP_SERVERS = "localhost:9092"
-    AUDIO_TOPIC = "audio_calls"
-    PROCESSED_TOPIC = "processed_calls"
-    GROUP_ID = "client-readiness-group"
+    AUDIO_TOPIC = "myTopic"
+    PROCESSED_TOPIC = "topicPython"
+    GROUP_ID = "myTopic"
 
 
 kafka_config = KafkaConfig()

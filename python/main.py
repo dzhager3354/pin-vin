@@ -1,4 +1,7 @@
 import json
+
+from nltk.chat.zen import responses
+
 from services.audio_processor import AudioProcessor
 from services.nlp_analyzer import NLPAnalyzer
 from models.readiness_model import ReadinessModel
@@ -49,6 +52,34 @@ def main():
         except Exception as e:
             print(f"Ошибка при обработке сообщения: {e}")
 
+def test2():
+    files = ["C:/Users/dzhager3354/Desktop/n1.mp3", "C:/Users/dzhager3354/Desktop/n2.mp3", "C:/Users/dzhager3354/Desktop/n3.mp3"]
+    kafka = KafkaService()
+    audio_processor = AudioProcessor()
+    nlp_analyzer = NLPAnalyzer()
+    counter = 0
+    for message in kafka.consume_audio_messages():
+        id = message.decode("utf-8")
+        print(id)
+        try:
+            a = int(id)
+        except:
+            continue
+        path = files[counter % len(files)]
+        counter+=1
+        metriks = nlp_analyzer.analyze_text(audio_processor.audio_to_text(path))
+        print(metriks)
+        response = {
+            "id": id,
+            "category": metriks["category"],
+            "probability": metriks["probability"],
+            "transcript": '',
+            "keywords": metriks["keywords"],
+            "sentiment": metriks["sentiment"],
+            "recommendation": metriks["recommendations"]
+        }
+        kafka.produce_processed_message(response)
+
 
 def generate_recommendation(category: str) -> str:
     """
@@ -64,7 +95,7 @@ def generate_recommendation(category: str) -> str:
 def test():
     # Пример использования
     audio_processor = AudioProcessor()
-    audio_path = "C:/Users/dzhager3354/Desktop/g.mp3"  # Укажите путь к вашему аудиофайлу
+    audio_path = "C:/Users/dzhager3354/Desktop/g4.mp3"  # Укажите путь к вашему аудиофайлу
     text = audio_processor.audio_to_text(audio_path)
     print("Распознанный текст:", text)
 
@@ -75,4 +106,4 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    test2()

@@ -8,3 +8,5 @@ class AudioConfig:
     MIN_DBFS: int = -20
     MAX_CHUNK_SIZE_MS: int = 15000
     OVERLAP_PERCENT: float = 0.2
+    LOW_CUT_FREQ = 100  # Гц
+    HIGH_CUT_FREQ = 4000  # Гц
