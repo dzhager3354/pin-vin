@@ -64,7 +64,7 @@ def generate_recommendation(category: str) -> str:
 def test():
     # Пример использования
     audio_processor = AudioProcessor()
-    audio_path = "C:/Users/dzhager3354/Desktop/q.mp3"  # Укажите путь к вашему аудиофайлу
+    audio_path = "C:/Users/dzhager3354/Desktop/e.mp3"  # Укажите путь к вашему аудиофайлу
     text = audio_processor.audio_to_text(audio_path)
     print("Распознанный текст:", text)
 

@@ -9,7 +9,7 @@ class AudioProcessor:
     def __init__(self):
         self.recognizer = sr.Recognizer()
 
-    def audio_to_text(self, audio_path, chunk_size=5000):
+    def audio_to_text(self, audio_path, chunk_size=10000):
         """
         Конвертирует аудио файл в текст, разбивая его на части
         """
@@ -21,7 +21,7 @@ class AudioProcessor:
 
         # Разбиваем аудиофайл на части по chunk_size миллисекунд
         for i in range(0, len(audio), chunk_size):
-            chunk = audio[max(0, i):i + chunk_size]
+            chunk = audio[max(0, i-2000):i + chunk_size]
             chunk.export("temp_chunk.wav", format="wav")
 
             with sr.AudioFile("temp_chunk.wav") as source:
