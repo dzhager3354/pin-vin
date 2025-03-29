@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/phone")
+@CrossOrigin(origins = "http://localhost:3333")
 public class PhoneController {
     @Autowired
     private PhoneService service;
