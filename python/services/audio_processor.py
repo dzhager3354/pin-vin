@@ -8,6 +8,15 @@ from speech_recognition import AudioData
 class AudioProcessor:
     def __init__(self):
         self.recognizer = sr.Recognizer()
+        self._setup_recognizer()
+
+    def _setup_recognizer(self):
+        """Настройка параметров распознавания"""
+        self.recognizer.energy_threshold = 400
+        self.recognizer.dynamic_energy_threshold = True
+        self.recognizer.pause_threshold = 0.8
+        self.recognizer.phrase_threshold = 0.3
+        self.recognizer.non_speaking_duration = 0.5
 
     def audio_to_text(self, audio_path, chunk_size=10000):
         """

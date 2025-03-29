@@ -1,6 +1,7 @@
-confluent-kafka
+confluent-kafka~=2.8.2
 SpeechRecognition==3.10.0
 spacy==3.7.4
 python-dotenv==1.0.0
 pydub==0.25.1
 ffmpeg
+pydantic~=2.11.0
