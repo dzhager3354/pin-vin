@@ -1,0 +1,25 @@
+.go-back-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 20px; 
+    font-weight: 500;
+    cursor: pointer; 
+    padding: 10px 20px;
+    margin: 20px;
+    transition: none;
+}
+
+.go-back-button__icon {
+    width: 24px;
+    height: 24px; 
+    object-fit: contain;
+}
+
+.go-back-button__text {
+    white-space: nowrap;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+}

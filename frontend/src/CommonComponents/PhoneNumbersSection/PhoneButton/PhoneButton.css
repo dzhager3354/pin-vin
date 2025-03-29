@@ -1,0 +1,31 @@
+/* Стиль для кнопки */
+.phone-button {
+    background-color: #f9f9f9; /* Лёгкий сероватый фон */
+    color: #6c757d; /* Серый цвет текста */
+    font-family: 'Roboto', sans-serif; /* Современный шрифт */
+    font-size: 16px; /* Размер текста */
+    font-weight: 500; /* Полужирный шрифт */
+    border: none; /* Убираем границы */
+    padding: 10px 20px; /* Внутренние отступы */
+    border-radius: 8px; /* Скруглённые края */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    cursor: pointer; /* Курсор указывает, что это кликабельный элемент */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Эффект наведения */
+.phone-button:hover {
+    background-color: #e9ecef; /* Лёгкое затемнение фона */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Усиленная тень */
+}
+
+/* Активное состояние (при нажатии) */
+.phone-button:active {
+    transform: scale(0.98); /* Лёгкое уменьшение при нажатии */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Уменьшенная тень */
+}
+
+/* Фокус (для доступности) */
+.phone-button:focus {
+    outline: none; /* Убираем стандартное выделение */
+}

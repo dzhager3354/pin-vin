@@ -1,0 +1,35 @@
+.stats-block {
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    background-color: #ffffff; /* Белый фон */
+    border-radius: 10px; /* Закруглённые края */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), /* Лёгкая тень со всех сторон */
+                0px 6px 8px rgba(0, 0, 0, 0.15); /* Более выраженная тень со всех сторон */
+    padding: 15px; /* Внешний отступ вокруг содержимого */
+    box-sizing: border-box; /* Учитывать padding в размерах */
+    transition: transform 0.3s ease; /* Плавная анимация */
+}
+
+.stats-block:hover {
+    transform: translateY(-20px); /* Поднятие блока на 20px вверх */
+}
+
+.stats-block__content {
+    text-align: center; /* Выравнивание текста по центру */
+    font-family: 'Poppins', sans-serif; /* Используем шрифт Poppins */
+}
+
+.stats-block__label {
+    font-size: 20px; /* Увеличенный размер шрифта для надписи */
+    font-weight: 600; /* Жирный шрифт */
+    color: black; /* Чёрный цвет */
+    margin-bottom: 10px; /* Увеличенный отступ между надписью и числом */
+    font-family: 'Poppins', sans-serif; /* Используем шрифт Poppins */
+}
+
+.stats-block__value {
+    font-size: 30px; /* Увеличенный размер шрифта для числа */
+    font-weight: 600; /* Жирный шрифт */
+    color: red; /* Красный цвет */
+}

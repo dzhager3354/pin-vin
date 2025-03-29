@@ -1,0 +1,25 @@
+.call-buttons-area {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    width: 300px; /* Фиксированная ширина */
+    max-height: 70vh; /* Максимальная высота 70% от экрана */
+    background-color: #f5f5f5; /* Бледно-серый фон */
+    border-radius: 16px; /* Скруглённые края */
+    padding: 20px; /* Внутренние отступы */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+
+    /* Скрываем полосу прокрутки */
+    scrollbar-width: none; /* Для Firefox */
+    width: 140vh;
+}
+
+/* Скрываем полосу прокрутки для WebKit-браузеров */
+.call-buttons-area::-webkit-scrollbar {
+    display: none; /* Полностью скрываем полосу прокрутку */
+}
+
+/* Отступы между кнопками */
+.call-buttons-area > * + * {
+    margin-top: 15px; /* Внешний отступ между кнопками */
+}

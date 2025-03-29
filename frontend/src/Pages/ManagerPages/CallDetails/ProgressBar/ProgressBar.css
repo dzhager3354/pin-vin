@@ -1,0 +1,34 @@
+.progress-bar-container {
+    position: relative; /* Для позиционирования текста */
+    width: 100%; /* Ширина задаётся через props */
+    height: 30px; /* Высота прогресс-бара */
+    background-color: #444444; /* Цвет незаполненной части (тёмно-серый) */
+    border-radius: 15px; /* Закруглённые углы */
+    overflow: hidden; /* Обрезаем выступающие края */
+}
+
+.progress-bar-filled {
+    height: 100%; /* Заполняет всю высоту контейнера */
+    background-color: red; /* Цвет заполненной части (красный) */
+    transition: width 0.3s ease; /* Плавная анимация изменения ширины */
+}
+
+.progress-bar-text {
+    position: absolute; /* Текст поверх прогресс-бара */
+    top: 50%; /* Вертикальное центрирование */
+    left: 50%; /* Горизонтальное центрирование */
+    transform: translate(-50%, -50%); /* Корректировка центрирования */
+    font-family: 'Poppins', sans-serif; /* Красивый шрифт */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: 700; /* Жирный шрифт */
+    color: white; /* Белый цвет текста */
+    margin: 0; /* Убираем стандартные отступы параграфа */
+    z-index: 1; /* Текст поверх прогресс-бара */
+}
+
+.probability-label {
+    font-family: 'Poppins', sans-serif; /* Убедитесь, что шрифт Poppins используется */
+    font-weight: 700; /* Жирный шрифт */
+    color: white; /* Белый цвет текста */
+    margin-right: 5px; /* Добавляем небольшой отступ между словом и числом */
+}

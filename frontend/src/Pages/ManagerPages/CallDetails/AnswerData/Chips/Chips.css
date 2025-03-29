@@ -1,0 +1,17 @@
+.chips {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px; /* Внутренние отступы */
+    border-radius: 16px; /* Закруглённые края */
+    font-size: 15px; /* Размер шрифта */
+    font-family: Arial, sans-serif; /* Шрифт */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    white-space: nowrap; /* Запрет переноса текста */
+    color: white; /* Цвет текста по умолчанию (белый) */
+}
+
+/* Если фон белый, меняем цвет текста на серый */
+.chips[style*="background-color: white"] {
+    color: gray;
+}
