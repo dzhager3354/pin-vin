@@ -4,7 +4,7 @@ from config.kafka_config import kafka_config
 
 
 class KafkaService:
-    def init(self):
+    def __init__(self):
         # Инициализация consumer с правильными настройками
         self.consumer = Consumer({
             'bootstrap.servers': kafka_config.KAFKA_BOOTSTRAP_SERVERS,

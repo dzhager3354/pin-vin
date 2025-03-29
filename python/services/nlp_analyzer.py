@@ -5,7 +5,7 @@ from config.settings import settings
 
 
 class NLPAnalyzer:
-    def init(self):
+    def __init__(self):
         self.nlp = spacy.load(settings.NLP_MODEL)
 
     def analyze_text(self, text: str) -> Dict:

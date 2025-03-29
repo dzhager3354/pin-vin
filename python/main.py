@@ -61,5 +61,18 @@ def generate_recommendation(category: str) -> str:
     }
     return recommendations.get(category, "Неизвестная категория")
 
+def test():
+    # Пример использования
+    audio_processor = AudioProcessor()
+    audio_path = "C:/Users/dzhager3354/Desktop/q.mp3"  # Укажите путь к вашему аудиофайлу
+    text = audio_processor.audio_to_text(audio_path)
+    print("Распознанный текст:", text)
+
+    # Далее вы можете использовать NLPAnalyzer для анализа текста
+    nlp_analyzer = NLPAnalyzer()
+    metrics = nlp_analyzer.analyze_text(text)
+    print("Метрики анализа:", metrics)
+
+
 if __name__ == "__main__":
-    main()
+    test()
