@@ -1,13 +1,20 @@
-import './CallsByPhoneNumber.css'
-import Header from '../../../CommonComponents/Header/Header'
-import GoBackButton from '../../../CommonComponents/GoBackButton/GoBackButton'
-import EmptyArea from '../../../CommonComponents/EmptyArea/EmptyArea'
-import './CallButtonsArea/CallButtonsArea'
-import CallButtonsArea from './CallButtonsArea/CallButtonsArea'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'; // Если хотите использовать fetch, замените на fetch
+import { useParams } from 'react-router-dom'; // Для получения параметров из URL
+import './CallsByPhoneNumber.css';
+import Header from '../../../CommonComponents/Header/Header';
+import GoBackButton from '../../../CommonComponents/GoBackButton/GoBackButton';
+import CallButtonsArea from './CallButtonsArea/CallButtonsArea';
 
 export default function CallsByPhoneNumber() {
+    // Получаем id из URL
+    const { id } = useParams();
 
-    const callList = [
+    // Состояние для хранения списка звонков
+    const [callList, setCallList] = useState(null);
+
+    // Заглушка (используется, если данные не получены)
+    const defaultCallList = [
         {
             id: 1,
             manager: 123,
@@ -70,11 +77,29 @@ export default function CallsByPhoneNumber() {
         }
     ];
 
-    return(
+    // Эффект для выполнения GET-запроса при монтировании компонента
+    useEffect(() => {
+        const fetchCalls = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/calls/get/${id}`);
+                setCallList(response.data); // Сохраняем данные из ответа
+            } catch (err) {
+                console.error('Не удалось получить данные:', err);
+                // Игнорируем ошибку и оставляем callList равным null
+            }
+        };
+
+        fetchCalls();
+    }, [id]); // Зависимость от id
+
+    // Используем переданные callList или значения по умолчанию
+    const data = callList || defaultCallList;
+
+    return (
         <>
-            <Header/>
+            <Header />
             <GoBackButton path="/manager-phone-numbers" label="к номерам" />
-            <CallButtonsArea callList={callList}/>
+            <CallButtonsArea callList={data} />
         </>
     );
 }

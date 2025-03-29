@@ -1,10 +1,15 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'; // Если хотите использовать fetch, замените на fetch
 import './SuperviserStats.css';
 import Header from '../../../CommonComponents/Header/Header';
 import GoBackButton from '../../../CommonComponents/GoBackButton/GoBackButton';
 import StatsBlock from './StatsBlock/StatsBlock';
 
-export default function SuperviserStats({ stats }) {
-    // Задаём значения по умолчанию, если stats не передан через пропсы
+export default function SuperviserStats() {
+    // Состояние для хранения статистики
+    const [stats, setStats] = useState(null);
+
+    // Значения по умолчанию
     const defaultStats = {
         amount: 2171,
         hot: 121,
@@ -12,6 +17,21 @@ export default function SuperviserStats({ stats }) {
         cold: 41,
         conversion: 51.7,
     };
+
+    // Эффект для выполнения GET-запроса при монтировании компонента
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/stats/get');
+                setStats(response.data); // Сохраняем данные из ответа
+            } catch (err) {
+                console.error('Не удалось получить данные:', err);
+                // Игнорируем ошибку и оставляем stats равным null
+            }
+        };
+
+        fetchStats();
+    }, []);
 
     // Используем переданные stats или значения по умолчанию
     const data = stats || defaultStats;
