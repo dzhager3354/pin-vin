@@ -15,7 +15,7 @@ export default function SuperviserStats() {
         hot: 121,
         warm: 179,
         cold: 41,
-        conversion: 51.7,
+        conversion: 0.57,
     };
 
     // Эффект для выполнения GET-запроса при монтировании компонента
