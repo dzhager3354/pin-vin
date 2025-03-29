@@ -9,8 +9,8 @@ class KafkaService:
         self.consumer = Consumer({
             'bootstrap.servers': kafka_config.KAFKA_BOOTSTRAP_SERVERS,
             'group.id': kafka_config.GROUP_ID,
-            'auto.offset.reset': 'earliest',
-            'enable.auto.commit': False  # Рекомендуется отключить авто-коммит для большего контроля
+            'auto.offset.reset': 'earliest'
+            # 'enable.auto.commit': False  # Рекомендуется отключить авто-коммит для большего контроля
         })
 
         # Инициализация producer

@@ -39,6 +39,7 @@ public class CallService {
     public List<Map<String, Object>> getCallsByPhoneId(Long phoneId) {
         List<Call> calls = callRepository.findByPhoneId(phoneId);
         return calls.stream()
+                .filter(call -> call.getManager() != null)
                 .map(call -> {
                     Map<String, Object> result = new HashMap<>();
                     result.put("id", call.getId());
@@ -46,5 +47,10 @@ public class CallService {
                     result.put("date", call.getDate());
                     return result;
                 })
-                .collect(Collectors.toList());    }
+                .collect(Collectors.toList());
+    }
+
+    public Call updateCall(Call call) {
+        return callRepository.save(call);
+    }
 }

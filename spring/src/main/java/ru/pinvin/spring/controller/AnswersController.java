@@ -20,4 +20,8 @@ public class AnswersController {
         return ResponseEntity.ok(service.getAnswerNeuronById(id));
     }
 
+    @GetMapping("/get-by-call/{id}")
+    public ResponseEntity<AnswerNeuron> getAnswerByCallId(@PathVariable("id") long id) {
+        return ResponseEntity.ok(service.getAnswerNeuronByCallId(id));
+    }
 }

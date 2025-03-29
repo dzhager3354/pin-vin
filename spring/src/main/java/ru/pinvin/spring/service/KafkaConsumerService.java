@@ -1,14 +1,32 @@
 package ru.pinvin.spring.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
+import ru.pinvin.spring.dao.AnswerNeuron;
+import ru.pinvin.spring.dao.Call;
+import ru.pinvin.spring.dao.CallResponseDAO;
+import ru.pinvin.spring.dao.Phone;
 
 @Service
 public class KafkaConsumerService {
+    @Autowired
+    private CallService callService;
+    @Autowired
+    private AnswerNeuronService service;
 
-    @KafkaListener(topics = "myTopic", groupId = "myGroup")
-    public void consume(String message) {
-        System.out.println("Consumed message: " + message);
-        // Обработка сообщения
+    @KafkaListener(topics = "topicPython")
+    public void consume(CallResponseDAO dao) {
+        Call call = callService.getCallById(dao.getId());
+        AnswerNeuron answerNeuron = new AnswerNeuron();
+        answerNeuron.setCategory(dao.getCategory());
+        answerNeuron.setKeywords(dao.getKeywords());
+        answerNeuron.setSentiment(dao.getSentiment());
+        answerNeuron.setProbability(dao.getProbability());
+        answerNeuron.setRecommendation(dao.getRecommendation());
+        answerNeuron.setTranscript(dao.getTranscript());
+        answerNeuron = service.saveAnswerNeuron(answerNeuron);
+        call.setAnswerNeuron(answerNeuron);
+        callService.updateCall(call);
     }
 }
