@@ -1,12 +1,20 @@
 import './Chips.css';
 
 export default function Chips({ label }) {
-    // Определяем цвет фона в зависимости от значения label
     const getBackgroundColor = () => {
-        if (label === 'позитивный') return '#4CAF50'; // Зелёный
-        if (label === 'нейтральный') return '#2196F3'; // Синий
-        if (label === 'негативный') return '#FF9800'; // Оранжевый
-        return 'white'; // По умолчанию белый
+        if (label === 'позитивный' || label === 'positive') {
+            label = 'позитивный'
+            return '#4CAF50';
+        } 
+        if (label === 'нейтральный' || label === 'neutral') {
+            label = 'нейтральный'
+            return '#2196F3';
+        } 
+        if (label === 'негативный' || label === 'negative') {
+            label = 'негативный'
+            return '#FF9800';
+        }
+        return 'white';
     };
 
     const backgroundColor = getBackgroundColor();
@@ -14,7 +22,7 @@ export default function Chips({ label }) {
     return (
         <div 
             className="chips" 
-            style={{ backgroundColor }} // Динамически задаём цвет фона
+            style={{ backgroundColor }} 
         >
             {label}
         </div>
