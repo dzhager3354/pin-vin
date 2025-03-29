@@ -1,25 +1,41 @@
 .go-back-button {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background-color: transparent;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #f5f5f5;
     border: none;
-    color: #333;
-    font-size: 20px; 
-    font-weight: 500;
-    cursor: pointer; 
-    padding: 10px 20px;
-    margin: 20px;
-    transition: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.go-back-button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.go-back-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
 }
 
 .go-back-button__icon {
-    width: 24px;
-    height: 24px; 
-    object-fit: contain;
+    color: #555;
+    transition: transform 0.2s ease;
 }
 
-.go-back-button__text {
-    white-space: nowrap;
-    font-family: 'Montserrat', 'Arial', sans-serif;
+.go-back-button:hover .go-back-button__icon {
+    color: #333;
+    transform: translateX(-2px);
+}
+.go-back-button {
+    background-color: #d82727;
+}
+.go-back-button__icon {
+    color: white;
 }

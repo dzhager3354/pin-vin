@@ -49,11 +49,30 @@ export default function ManagerPhoneNumbers() {
         <>
             <Header />
             <GoBackButton path="/" label="назад" />
-            <div style={{ display: 'flex', gap: '20px', padding: '20px' }}>
+            <div style={{ display: 'flex', gap: '20px' }}>
                 {/* Секция с телефонами */}
                 <Section phoneList={data} onClick={() => alert("!!!")} />
-                {/* Пустая зона */}
-                <EmptyArea />
+                {/* Пустая зона с красивой надписью */}
+                <EmptyArea>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '100%',
+                        color: '#666',
+                        fontSize: '1.5rem',
+                        fontWeight: '300',
+                        textAlign: 'center',
+                        padding: '2rem',
+                        font: 'Poppins',
+                        opacity: 0.7,
+                        background: 'linear-gradient(135deg, #f5f5f5 0%, #e9e9e9 100%)',
+                        borderRadius: '12px',
+                        boxShadow: 'inset 0 0 10px rgba(0,0,0,0.05)'
+                    }}>
+                        Выберите номер из списка<br />для просмотра звонков
+                    </div>
+                </EmptyArea>
             </div>
         </>
     );

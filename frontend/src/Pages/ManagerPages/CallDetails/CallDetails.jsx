@@ -5,6 +5,7 @@ import './CallDetails.css';
 import Header from '../../../CommonComponents/Header/Header';
 import ProgressBar from './ProgressBar/ProgressBar';
 import AnswerData from './AnswerData/AnswerData';
+import GoBackButton from '../../../CommonComponents/GoBackButton/GoBackButton';
 
 export default function CallDetails() {
     // Имитация данных из JSON
@@ -119,6 +120,7 @@ export default function CallDetails() {
     return (
         <>
             <Header />
+            <GoBackButton path="/calls-by-phonenumber/:id" label="назад" />
             <div className="details-area">
                 <p className="details-name">Иван Петров</p>
                 <p className="details-info">

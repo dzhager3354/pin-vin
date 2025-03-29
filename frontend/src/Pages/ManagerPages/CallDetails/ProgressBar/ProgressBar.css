@@ -1,34 +1,66 @@
 .progress-bar-container {
-    position: relative; /* Для позиционирования текста */
-    width: 100%; /* Ширина задаётся через props */
-    height: 30px; /* Высота прогресс-бара */
-    background-color: #444444; /* Цвет незаполненной части (тёмно-серый) */
-    border-radius: 15px; /* Закруглённые углы */
-    overflow: hidden; /* Обрезаем выступающие края */
+    position: relative;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 100%;
+    background-color: #444444;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .progress-bar-filled {
-    height: 100%; /* Заполняет всю высоту контейнера */
-    background-color: red; /* Цвет заполненной части (красный) */
-    transition: width 0.3s ease; /* Плавная анимация изменения ширины */
+    height: 100%;
+    background-color: #d82727;
+    transition: 
+        width 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        border-radius 0.2s ease-out;
+    position: relative;
+}
+
+/* Плавное появление правого скругления при достижении конца */
+.progress-bar-filled::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #d82727;
+    border-radius: 50%;
+    transform: scaleX(0.5);
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+.progress-bar-filled[style*="100%"]::after {
+    opacity: 1;
 }
 
 .progress-bar-text {
-    position: absolute; /* Текст поверх прогресс-бара */
-    top: 50%; /* Вертикальное центрирование */
-    left: 50%; /* Горизонтальное центрирование */
-    transform: translate(-50%, -50%); /* Корректировка центрирования */
-    font-family: 'Poppins', sans-serif; /* Красивый шрифт */
-    font-size: 16px; /* Размер шрифта */
-    font-weight: 700; /* Жирный шрифт */
-    color: white; /* Белый цвет текста */
-    margin: 0; /* Убираем стандартные отступы параграфа */
-    z-index: 1; /* Текст поверх прогресс-бара */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    z-index: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.probability-label {
-    font-family: 'Poppins', sans-serif; /* Убедитесь, что шрифт Poppins используется */
-    font-weight: 700; /* Жирный шрифт */
-    color: white; /* Белый цвет текста */
-    margin-right: 5px; /* Добавляем небольшой отступ между словом и числом */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.progress-bar-container {
+    animation: fadeIn 0.5s ease-out forwards;
 }

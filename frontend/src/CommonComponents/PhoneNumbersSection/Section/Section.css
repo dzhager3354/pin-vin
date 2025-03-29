@@ -9,14 +9,20 @@
     padding: 20px; /* Внутренние отступы */
     overflow-y: auto; /* Добавляем вертикальную прокрутку */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
-
-    /* Скрываем полосу прокрутки */
-    scrollbar-width: none; /* Для Firefox */
 }
 
-/* Скрываем полосу прокрутки для WebKit-браузеров */
+/* Стили для пользовательской полосы прокрутки */
 .section::-webkit-scrollbar {
-    display: none; /* Полностью скрываем полосу прокрутки */
+    width: 8px; /* Ширина полосы прокрутки */
+}
+
+.section::-webkit-scrollbar-thumb {
+    background-color: #d82727; /* Цвет ползунка */
+    border-radius: 10px; /* Скруглённые края ползунка */
+}
+
+.section::-webkit-scrollbar-track {
+    background: #f5f5f5; /* Цвет фона полосы прокрутки */
 }
 
 /* Отступы между кнопками */

@@ -28,7 +28,7 @@
     border-radius: 50%; /* Делаем круг */
     margin-right: 10px; /* Отступ между кружком и текстом */
     display: inline-block;
-    background-color: red; /* Временно установите цвет для проверки */
+    background-color: #d82727; /* Временно установите цвет для проверки */
 }
 
 .call-info-button:hover {

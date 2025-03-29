@@ -20,7 +20,7 @@ export default function CallInfoButton({ callData }) {
     };
 
     // Массив доступных цветов
-    const colors = ['red', 'green', 'blue', 'orange'];
+    const colors = ['#d82727', '#42a5f5', 'orange'];
 
     // Генерация случайного индекса
     const getRandomColor = () => {

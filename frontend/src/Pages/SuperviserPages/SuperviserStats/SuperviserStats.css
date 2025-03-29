@@ -36,5 +36,5 @@
 .stats-block__value {
     font-size: 30px; /* Размер шрифта для числа */
     font-weight: 600; /* Жирный шрифт */
-    color: red; /* Красный цвет */
+    color: #d82727; /* Красный цвет */
 }

@@ -22,7 +22,7 @@
 .header__logo {
     font-size: 36px;
     font-weight: bold;
-    color: red;
+    color: #d82727;
     margin-left: 10px; /* Уменьшите отступ */
     font-family: 'Roboto Mono', monospace;
 }
