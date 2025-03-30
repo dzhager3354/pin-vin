@@ -73,7 +73,7 @@ def test2():
             "id": id,
             "category": metriks["category"],
             "probability": metriks["probability"],
-            "transcript": '',
+            "transcript": 'Менеджер и клиент провели продуктивный диалог',
             "keywords": metriks["keywords"],
             "sentiment": metriks["sentiment"],
             "recommendation": metriks["recommendations"]
