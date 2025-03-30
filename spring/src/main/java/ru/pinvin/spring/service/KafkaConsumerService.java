@@ -15,8 +15,9 @@ public class KafkaConsumerService {
     @Autowired
     private AnswerNeuronService service;
 
-    @KafkaListener(topics = "topicPython")
+    @KafkaListener(topics = "topicPython", groupId = "myGroup")
     public void consume(CallResponseDAO dao) {
+        System.out.println("dzhager3354: consume message from python");
         Call call = callService.getCallById(dao.getId());
         AnswerNeuron answerNeuron = new AnswerNeuron();
         answerNeuron.setCategory(dao.getCategory());
